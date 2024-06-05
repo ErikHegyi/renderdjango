@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logikai Ág</title>
+</head>
+<script>
+        function goToParent() {
+            window.location.href = "/";
+        }
+</script>
+<style>
+    body {
+        background-color: #181a19;
+    }
+    h1 {
+        font-family: bookman old style;
+        font-size: 100px;
+        margin: 25px;
+        text-align: center;
+        color: white;
+    }
+    h2 {
+        font-family: bookman old style;
+        font-size: 50px;
+        margin: 25px;
+        text-align: center;
+        color: white;
+    }
+    .logout {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: green;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .button {
+        display: none;
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+</style>
+<body>
+    <h1>Logikai Ág</h1>
+    <h2>
+        {{ user.username }}
+    </h2>
+    <button class="logout" onclick="goToParent()">Főoldal</button>
+    <div class="buttons">
+        <button class="button" id="button1" onclick="window.location.href='/tasks/logika/jatszma/'">A játszma</button>
+        <br>
+        <button class="button" id="button2" onclick="window.location.href='/tasks/logika/iker-2/'">Iker 2</button>
+        <br>
+        <button class="button" id="button3" onclick="window.location.href='/tasks/logika/nezopont/'">Nézőpont</button>
+        <br>
+        <button class="button" id="button4" onclick="window.location.href='/tasks/logika/szotenger/'">Szótenger</button>
+    </div>
+</body>
+<script>
+    var buttonsToShow = {{ buttons|safe }};
+
+    buttonsToShow.forEach(buttonNumber => {
+        document.getElementById('button' + buttonNumber).style.display = 'inline-block';
+    });
+</script>
+</html>

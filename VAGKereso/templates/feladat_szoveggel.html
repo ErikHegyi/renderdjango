@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<style>
+    body {
+        background-color: #181a19;
+    }
+    h1 {
+        font-family: bookman old style;
+        font-size: 100px;
+        margin: 25px;
+        text-align: center;
+        color: white;
+    }
+    h2 {
+        font-family: bookman old style;
+        font-size: 50px;
+        margin: 25px;
+        text-align: center;
+        color: white;
+    }
+    .logout {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: green;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+    {% for line in text %}
+        <p style="color:white">{{ line }}</p>
+    {% endfor %}
+    <form method="POST" action="{% url 'name' %}">
+        {% csrf_token %}
+        <input type="text" name="answer" placeholder="Válasz">
+        <br>
+        <button type="submit">Küldés</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Művészeti Ág</title>
+</head>
+<script>
+    function goToParent() {
+        window.location.href = "/";
+    }
+</script>
+<style>
+    body {
+        background-color: #181a19;
+    }
+    h1 {
+        font-family: bookman old style;
+        font-size: 100px;
+        margin: 25px;
+        text-align: center;
+        color: white;
+    }
+    h2 {
+        font-family: bookman old style;
+        font-size: 50px;
+        margin: 25px;
+        text-align: center;
+        color: white;
+    }
+    .logout {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: green;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .button {
+        display: none;
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+</style>
+<body>
+    <h1>Művészeti Ág</h1>
+    <h2>
+        {{ user.username }}
+    </h2>
+    <button class="logout" onclick="goToParent()">Főoldal</button>
+    <div class="buttons">
+        <button class="button" id="button1" onclick="window.location.href='/tasks/muveszet/piac/'">A piac</button>
+        <br>
+        <button class="button" id="button2" onclick="window.location.href='/tasks/muveszet/festmeny/'">A festmény</button>
+        <br>
+        <button class="button" id="button3" onclick="window.location.href='/tasks/muveszet/darab/'">A darab</button>
+        <br>
+        <button class="button" id="button4" onclick="window.location.href='/tasks/muveszet/ritmus/'">A ritmus</button>
+    </div>
+</body>
+<script>
+    var buttonsToShow = {{ buttons|safe }};
+
+    buttonsToShow.forEach(buttonNumber => {
+        document.getElementById('button' + buttonNumber).style.display = 'inline-block';
+    });
+</script>
+</html>

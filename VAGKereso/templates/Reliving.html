@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reliving</title>
+    <style>
+        body {
+            background-color: #181a19;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10vh;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .logout {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: green;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button class="logout" onclick="goToParent()">Főoldal</button>
+    <div>
+        <h2>Harmadik feladat - Reliving</h2>
+        <br>
+        <p>In twos we think, our minds twirl</p>
+        <p>Seeking the piece that makes us whole</p>
+        <p>Vámbéry's treasure will be our pearl</p>
+        <p>We're gonna win this 'cause we want more!</p>
+        <form action="{% url 'tasks:reliving' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="answer" placeholder="Írd ide válaszod"><br>
+            <button type="submit">Küldés</button>
+        </form>
+    </div>
+</body>
+<script>
+    function goToParent() {
+        window.location.href = "/";
+    }
+</script>
+</html>

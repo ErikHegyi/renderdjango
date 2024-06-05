@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A költő</title>
+    <script>
+        function goToParent() {
+            window.location.href = {% url 'index' %};
+        }
+    </script>
+    <style>
+        body {
+            background-color: #181a19;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10vh;
+            font-family: Arial, sans-serif;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #id {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+        }
+        .logout {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: green;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button class="logout" onclick="goToParent()">Főoldal</button>
+    <div>
+        <h2>Első feladat - A költő</h2>
+        <p></p>
+        <p>Bemutatkozik a költő</p>
+        <p>Nagy utazást betöltő</p>
+        <p>Kérdés mire gondolt?</p>
+        <p>Válaszaid jól megfontold!</p>
+        <p>A költő személye egy rejtély</p>
+        <p>De ő minden reggel a szemedbe néz</p>
+        <p>Nem él, csak szelleme</p>
+        <p>Mindannyiótokban benne</p>
+        <p>Mező, hegy és hullámvölgy</p>
+        <p>Lehet, hogy nem tiszta tölgy</p>
+        <p>Ne légy mostan úrihölgy</p>
+        <p>Minden szögből gyönyörködj</p>
+
+        <form action="{% url 'tasks:kolto' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="answer" placeholder="Írd ide válaszod"><br>
+            <button type="submit">Küldés</button>
+        </form>
+    </div>
+</body>
+</html>
