@@ -50,6 +50,10 @@
     <button class="logout" onclick="goToParent()">Főoldal</button>
     <div>
         <h2>Iker 2</h2>
+        <p>Mekkora a térfogata annak a téglatestnek, melyre érvényes:</p>
+        <p>Palástjának területe 96</p>
+        <p>Alapjának területe 55</p>
+        <p>egyik élének nagysága 11</p>
         <form action="{% url 'tasks:iker-2' %}" method="post">
             {% csrf_token %}
             <input type="text" name="answer" placeholder="Írd ide válaszod"><br>
